@@ -1,4 +1,5 @@
 # 📊 World Layoffs: Data Cleaning & Exploratory Data Analysis (SQL)
+*🚀 Update: The interactive Tableau Dashboard for this project is now live! [Click here to view it.](https://public.tableau.com/app/profile/tunahan.oral/viz/Global_Layoffs_Sector_Analysis/Dashboard1?publish=yes)*
 
 In this project, I performed a complete data professional's workflow: from cleaning messy raw data to extracting deep business insights using SQL. This project showcases my ability to handle complex database operations and translate raw numbers into meaningful conclusions.
 
@@ -35,6 +36,17 @@ With a clean dataset, I explored the numbers to find the "story" behind the glob
 * **Aggregations:** Analyzed data by industry, country, and funding stage to identify the most affected sectors.
 
 🔗 **[View EDA Script](./Exploratory_Data_Analysis.sql)**
+
+---
+
+## 📊 Phase 3: Interactive Data Visualization (Tableau)
+Numbers and SQL queries tell a story, but visualizations make it accessible to decision-makers. I connected the cleaned SQL output to **Tableau** to build an interactive, drill-down dashboard.
+
+**Dashboard Features:**
+* **Dynamic Filtering:** Users can click on specific industries (e.g., Retail, Tech) to instantly filter global metrics and country maps.
+* **Visual Storytelling:** Transformed complex aggregations (like the 2023 layoff peak) into intuitive bar charts and KPI indicators.
+
+🔗 **[View the Interactive Dashboard on Tableau Public](https://public.tableau.com/app/profile/tunahan.oral/viz/Global_Layoffs_Sector_Analysis/Dashboard1?publish=yes)**
 
 ---
 
