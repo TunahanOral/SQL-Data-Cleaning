@@ -1,30 +1,59 @@
-# 🧹 SQL Data Cleaning Project: Global Layoffs Dataset
+# 📊 World Layoffs: Data Cleaning & Exploratory Data Analysis (SQL)
 
-## 🎯 Objective
-In this project, I transformed a raw, messy dataset containing global tech and industry layoffs into a clean, standardized format ready for Exploratory Data Analysis (EDA) and Business Intelligence (BI) dashboards. As a data analyst, I know that visualizing dirty data leads to flawed business decisions, so ensuring data integrity was my top priority.
+In this project, I performed a complete data professional's workflow: from cleaning messy raw data to extracting deep business insights. This project showcases my ability to handle complex SQL operations and translate data into meaningful conclusions.
 
-## 🛠️ Tools & SQL Techniques Used
+---
 
-**1. Data Staging (Security First)**
-* Created a `layoffs_staging` table to act as a sandbox. I performed all cleaning operations on this backup table to preserve the integrity of the raw database.
+## 🛠️ Phase 1: Data Cleaning
+The primary goal was to transform a raw dataset into a structured and reliable source.
 
-**2. Removing Duplicates**
-* Utilized **Window Functions** (`ROW_NUMBER() OVER(PARTITION BY ...)`) paired with **Common Table Expressions (CTEs)** to identify and delete completely identical rows without losing unique data.
+### 📸 Visual Transformation
+I cleaned the data by removing duplicates, standardizing naming conventions, and handling null values.
 
-**3. Data Standardization**
-* **String Manipulation:** Applied `TRIM()` functions to remove trailing spaces and punctuation from company names and locations (e.g., changing 'United States.' to 'United States').
-* **Category Grouping:** Used the `LIKE` operator to consolidate varying industry names (e.g., unifying different 'Crypto' tags).
-* **Data Type Conversion:** Converted the date column from text/string format into a standard `DATE` format using `STR_TO_DATE()` for accurate time-series analysis.
+| Before Cleaning 
 
-**4. Handling NULL and Blank Values**
-* **Data Recovery via Self Join:** Identified companies with missing `industry` values and populated them by performing a `JOIN` on the same table, extracting the missing data from other branches of the same company.
-* **Dropping Unusable Data:** Deleted rows where both `total_laid_off` and `percentage_laid_off` were NULL, as these rows provided no mathematical value for future aggregations.
+<img width="1064" height="350" alt="oncesi" src="https://github.com/user-attachments/assets/cca9ec89-2ae6-49cc-81e2-36389fe7c105" />
+| After Cleaning |
+<img width="1253" height="362" alt="sonrası" src="https://github.com/user-attachments/assets/52e792a2-92b4-4c3c-9427-742ebc2094ae" />
 
-## 📸 Before & After
+**Key Operations:**
+* **De-duplication:** Used `ROW_NUMBER()` and CTEs to identify and remove redundant records.
+* **Standardization:** Fixed industry names (e.g., 'Crypto') and removed trailing spaces.
+* **Date Conversion:** Converted text-based dates into standard SQL `DATE` format.
+* **Schema Optimization:** Dropped unnecessary columns like `row_num` after processing.
 
-**🔴 Raw Data (Contains duplicates, unformatted dates, and blanks)**
-<img width="1064" height="350" alt="oncesi" src="https://github.com/user-attachments/assets/6f8380b3-3eab-43b8-a0e5-d6b9c7a70f0b" />
+🔗 **[View Cleaning Script](./Data%20Cleaning%20Project.sql)**
 
+---
 
-**🟢 Cleaned & Ready for Analysis**
-<img width="1253" height="362" alt="sonrası" src="https://github.com/user-attachments/assets/072e63fb-941e-4ba0-ac0a-c2c9e342bb03" />
+## 🔍 Phase 2: Exploratory Data Analysis (EDA)
+With a clean dataset, I explored the numbers to find the "story" behind the layoffs.
+
+**Advanced Techniques Used:**
+* **CTE & Window Functions:** To rank the top 5 companies with the most layoffs for each year.
+* **Rolling Totals:** Calculated the cumulative layoff count month-by-month to see the progression of the "Tech Winter."
+* **Aggregations:** Grouped data by industry, country, and funding stage to find the biggest losers.
+
+🔗 **[View EDA Script](./Exploratory_Data_Analysis.sql)**
+
+---
+
+## 📈 Key Insights & Findings
+* **The 2023 Peak:** My analysis confirmed that 2023 was far more devastating for tech employees than 2022.
+* **Tech Giants:** Amazon, Google, and Meta recorded the largest individual layoff events.
+* **Sector Volatility:** The Consumer and Retail sectors faced the most significant workforce reductions globally.
+* **Funding Impact:** Companies in the "Post-IPO" stage accounted for the majority of the total layoffs.
+
+---
+
+## 💻 Tech Stack
+* **Database:** MySQL / SQL Server
+* **Core Skills:** CTEs, Window Functions (`DENSE_RANK`), Joins, Data Cleaning, Time-Series Analysis.
+
+---
+
+## 👨‍💻 Author
+**Tunahan Oral**
+*Management Information Systems Student at Alparslan Türkeş Science and Technology University*
+
+[LinkedIn Profile](https://www.linkedin.com/in/tunahan-oral/) | [GitHub Portfolio](https://github.com/TunahanOral)
